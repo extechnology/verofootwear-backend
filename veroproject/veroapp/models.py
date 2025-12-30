@@ -53,7 +53,7 @@ class Product(models.Model):
     sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     art_number = models.CharField(max_length=100)
     description = models.TextField()
-    detail_points = models.JSONField(blank=True, null=True)
+    detail_points = models.TextField(blank=True, null=True)
     is_new_arrival = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
