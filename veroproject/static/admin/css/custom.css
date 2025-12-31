@@ -1,0 +1,39 @@
+/* Sidebar */
+.main-sidebar {
+  background: linear-gradient(180deg, #0f172a, #020617);
+}
+
+/* Brand */
+.brand-link {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Cards */
+.card {
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* Tables */
+.table thead th {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+}
+
+/* Forms */
+.form-control {
+  border-radius: 10px;
+}
+
+/* Focus */
+.form-control:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99,102,241,.25);
+}

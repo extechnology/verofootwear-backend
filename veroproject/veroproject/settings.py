@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,21 +25,17 @@ SECRET_KEY = 'django-insecure-)y+e!df4yejzkym%w-9&_^-nt$b7q3fe)%q(_gx(=pg)ax0g9$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,8 +125,110 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# settings.py
+
+JAZZMIN_SETTINGS = {
+    # --------------------
+    # Branding
+    # --------------------
+    "site_title": "VERO Admin",
+    "site_header": "VERO",
+    "site_brand": "VERO Footwear",
+    "site_logo": "admin/images/vero-logo.jpg",
+    "site_logo_classes": "img-circle elevation-3",
+    "site_icon": "admin/images/vero-logo.jpg",
+
+    "welcome_sign": "Welcome to VERO Control Panel",
+    "copyright": "VERO Footwear",
+
+    # --------------------
+    # Login Screen
+    # --------------------
+    "login_logo": "admin/logo-lg.svg",
+    "login_logo_dark": "admin/logo-lg-dark.svg",
+    "login_background": "admin/login-bg.jpg",
+
+    # --------------------
+    # Top Navigation
+    # --------------------
+    "topmenu_links": [
+        {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Website", "url": "/", "new_window": True},
+        {"model": "auth.User"},
+    ],
+
+    # --------------------
+    # Sidebar
+    # --------------------
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": ["sessions"],
+    "hide_models": ["auth.Group"],
+
+    "order_with_respect_to": [
+        "business",
+        "products",
+        "orders",
+        "customers",
+        "auth",
+    ],
+
+    # --------------------
+    # Icons (FontAwesome)
+    # --------------------
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "products.product": "fas fa-box",
+        "products.productvariant": "fas fa-layer-group",
+        "orders.order": "fas fa-shopping-bag",
+        "orders.orderitem": "fas fa-receipt",
+        "customers.customer": "fas fa-user-tie",
+    },
+
+    # --------------------
+    # UI Tweaks
+    # --------------------
+    "related_modal_active": True,
+    "custom_css": "admin/css/custom.css",
+    "custom_js": "admin/js/custom.js",
+    "show_ui_builder": False,
+}
+
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "darkly",
+
+    "dark_mode_theme": "darkly",
+
+    # Layout
+    "sidebar_fixed": True,
+    "navbar_fixed": True,
+    "footer_fixed": False,
+
+    # Visual polish
+    "body_small_text": False,
+    "brand_small_text": False,
+    "sidebar_nav_small_text": False,
+
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+
+    # Buttons
+    "button_classes": {
+        "primary": "btn btn-primary",
+        "secondary": "btn btn-outline-secondary",
+        "success": "btn btn-success",
+        "warning": "btn btn-warning",
+        "danger": "btn btn-danger",
+        "info": "btn btn-info",
+    },
+}
